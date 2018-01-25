@@ -1,21 +1,11 @@
 from flask import Flask
 from flask import request
-
 from lib.tracing import init_tracer
-
 from opentracing.ext import tags
 from opentracing.propagation import Format
 
 app = Flask(__name__)
-
-# Change: init a tracer
 tracer = init_tracer('publisher')
-
-# @app.route("/publish")
-# def publish_prev():
-#     hello_str = request.args.get('helloStr')
-#     print(hello_str)
-#     return 'published'
 
 @app.route("/publish")
 def publish():
@@ -27,4 +17,4 @@ def publish():
         return 'published'
 
 if __name__ == "__main__":
-    app.run(port=8081)
+    app.run(port=8082)

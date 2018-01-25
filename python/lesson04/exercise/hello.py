@@ -8,10 +8,17 @@ from opentracing_instrumentation.request_context import get_current_span, span_i
 from opentracing.ext import tags
 from opentracing.propagation import Format
 
-
 def say_hello(hello_to):
     with tracer.start_span('say-hello') as span:
         span.set_tag('hello-to', hello_to)
+        with span_in_context(span):
+            hello_str = format_string(hello_to)
+            print_hello(hello_str)
+
+def say_hello_inst(hello_to, greeting):
+    with tracer.start_span('say-hello') as span:
+        span.set_tag('hello-to', hello_to)
+        span.set_baggage_item('greeting', greeting)
         with span_in_context(span):
             hello_str = format_string(hello_to)
             print_hello(hello_str)
@@ -45,12 +52,13 @@ def http_get(port, path, param, value):
 
 
 # main
-assert len(sys.argv) == 2
+assert len(sys.argv) == 3
 
-tracer = init_tracer('03-hello-world-sol')
+tracer = init_tracer('04-hello-world')
 
 hello_to = sys.argv[1]
-say_hello(hello_to)
+greeting = sys.argv[2]
+say_hello_inst(hello_to, greeting)
 
 # yield to IOLoop to flush the spans
 time.sleep(2)
