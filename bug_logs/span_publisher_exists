@@ -1,0 +1,55 @@
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - python -m lesson01.exercise.hello_real Guess
+Initializing Jaeger Tracer with UDP reporter
+Using sampler ConstSampler(True)
+opentracing.tracer initialized to <jaeger_client.tracer.Tracer object at 0x7f491174e150>[app_name=my-tracer]
+Span starts
+Hello, Guess!
+Reporting span 12ab639445014805:12ab639445014805:0:1 my-tracer.my-span
+Span ends
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - python -m lesson01.exercise.hello_real Orran_w_log
+Initializing Jaeger Tracer with UDP reporter
+Using sampler ConstSampler(True)
+opentracing.tracer initialized to <jaeger_client.tracer.Tracer object at 0x7fdac31a0150>[app_name=my-tracer]
+Span starts
+Hello, Orran_w_log!
+Reporting span b56c78dc30b60fde:b56c78dc30b60fde:0:1 my-tracer.my-span
+Span ends
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - s
+zsh: command not found: s
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - ls 
+extracredit  lesson01  lesson02  lesson03  lesson04  lib  playground  README.md  requirements.txt
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - mkdir lesson02/exercise
+
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - touch lesson02/exercise/__init__.py
+
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - cp lesson01/solution/*.py lesson02/exercise/
+
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - python -m lesson02.exercise.hello Bryan
+Initializing Jaeger Tracer with UDP reporter
+Using sampler ConstSampler(True)
+opentracing.tracer initialized to <jaeger_client.tracer.Tracer object at 0x7f854131a1d0>[app_name=hello-world]
+Reporting span 4e4de5c4b43d0853:4e4de5c4b43d0853:0:1 hello-world.format
+Hello, Bryan!
+Reporting span cad8ef4466565f23:cad8ef4466565f23:0:1 hello-world.println
+Reporting span 4dbe8474e117eaf3:4dbe8474e117eaf3:0:1 hello-world.say-hello
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - python -m lesson02.exercise.hello Bryan
+Initializing Jaeger Tracer with UDP reporter
+Using sampler ConstSampler(True)
+opentracing.tracer initialized to <jaeger_client.tracer.Tracer object at 0x7fd2b89ea390>[app_name=my-tracer--hello-world]
+Reporting span dd51b078496e18e1:dd51b078496e18e1:0:1 my-tracer--hello-world.my-span--format
+Hello, Bryan!
+Reporting span a5e97662492d1d72:a5e97662492d1d72:0:1 my-tracer--hello-world.my-span--println
+Reporting span f29a8b068a3e82eb:f29a8b068a3e82eb:0:1 my-tracer--hello-world.my-span--say-hello
+Span publisher exists
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - python -m lesson02.exercise.hello xxxxx
+Initializing Jaeger Tracer with UDP reporter
+Using sampler ConstSampler(True)
+opentracing.tracer initialized to <jaeger_client.tracer.Tracer object at 0x7f6e102ff250>[app_name=my-tracer--hello-world]
+Reporting span da73bafc6aef88e4:da73bafc6aef88e4:0:1 my-tracer--hello-world.my-span--format
+Hello, xxxxx!
+Reporting span b4c25fadde081f97:b4c25fadde081f97:0:1 my-tracer--hello-world.my-span--println
+Reporting span a5be91650a127f1c:a5be91650a127f1c:0:1 my-tracer--hello-world.my-span--say-hello
+Span publisher exists
+(.venv) [~/workspace/opentracing-tutorial/python]-[rework⚡]── - 
+
+
